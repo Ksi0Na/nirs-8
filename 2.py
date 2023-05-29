@@ -5,6 +5,7 @@ import librosa
 import wave
 import time
 
+
 class TextToSpeech:
     def __init__(self,
                  model_path: str = 'text-to-speech/ru/',
@@ -33,6 +34,7 @@ class TextToSpeech:
     def save_text_to_speech(self) -> None:
         self.model.save_wav(text=self.your_text, speaker=self.speaker, sample_rate=self.sample_rate)
 
+    @staticmethod
     def get_wav_duration(self, file_path) -> int:
         with wave.open(file_path, 'rb') as wav_file:
             frames = wav_file.getnframes()
@@ -46,6 +48,7 @@ class TextToSpeech:
         sd.play(data, sample_rate)
         duration = self.get_wav_duration(filename)
         time.sleep(duration + 5)
+
 
 if __name__ == '__main__':
     text_to_speech = TextToSpeech()

@@ -1,6 +1,7 @@
 from transformers import AutoTokenizer, AutoModelWithLMHead, pipeline
 import os
 
+
 class TextGenerator:
     def __init__(self,
                  model_path: str = "text-gen/ru/small",
@@ -37,6 +38,7 @@ class TextGenerator:
                                   max_length=50,
                                   temperature=0.8)[0]['generated_text']
         return gen_text
+
 
 if __name__ == '__main__':
     text_generator = TextGenerator()

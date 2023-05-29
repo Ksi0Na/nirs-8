@@ -38,6 +38,7 @@ class VoiceRecognizer:
             rec = KaldiRecognizer(self.model, args.samplerate)
             self.process_audio(rec, parser)
 
+    @staticmethod
     def create_parser(self):
         parser = argparse.ArgumentParser(add_help=False)
         parser.add_argument("-l", "--list-devices", action="store_true", help="show list of audio devices and exit")
@@ -60,6 +61,7 @@ class VoiceRecognizer:
         parser.add_argument("-m", "--model", type=str, help="language model; e.g. en-us, fr, nl; default is en-us")
         return parser.parse_args(remaining)
 
+    @staticmethod
     def configure_samplerate(self, args) -> None:
         if args.samplerate is None:
             device_info = sd.query_devices(args.device, "input")
